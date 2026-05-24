@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ビール注ぎゲーム</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+
+<body>
+  <div id="wrap">
+
+    <div id="hud">
+      <div class="stat">
+        <div class="slb">スコア</div>
+        <div class="sval" id="sv" style="color:#c08010">0</div>
+      </div>
+
+      <div class="stat">
+        <div class="slb">ビール:泡</div>
+        <div class="sval" id="rv" style="color:#378ADD">—</div>
+      </div>
+
+      <div class="stat">
+        <div class="slb">残り時間</div>
+        <div class="sval" id="tv" style="color:#d04b30">15.0</div>
+      </div>
+    </div>
+
+  <div class="stat" style="width:100%">
+    <div class="slb">ハイスコア</div>
+    <div class="sval" id="hv">0</div>
+  </div>
+
+    <div id="guide">
+      <h3>🍺 遊び方</h3>
+
+      <div class="guide-grid">
+        <div class="guide-box">
+          <b>🍺 グラスを傾ける</b>
+          傾けるほど泡が減り、静かに注げます。
+          <div class="small">立てたまま注ぐ → 泡が増えやすい</div>
+        </div>
+
+        <div class="guide-box">
+          <b>🥫 缶を傾ける</b>
+          傾けるほど勢いよく注がれます。
+          <div class="small">急角度 → 一気に泡立つ</div>
+        </div>
+      </div>
+
+      <div style="margin-top:8px">
+        🎯 目標は <b>ビール80% : 泡20%</b> の黄金比！
+      </div>
+    </div>
+
+    <div id="canvas-wrap">
+      <canvas id="c"></canvas>
+
+      <div id="countdown"></div>
+
+      <div id="ov">
+        <div id="ov-label">—</div>
+        <div id="ov-score">0点</div>
+        <div id="ov-ratio"></div>
+        <button id="retry">もう一杯！</button>
+      </div>
+    </div>
+
+    <div id="btns">
+      <button class="gbtn" id="glass-btn"
+        onpointerdown="hold('g',true)"
+        onpointerup="hold('g',false)"
+        onpointerleave="hold('g',false)"
+        onpointercancel="hold('g',false)">
+        <span class="ico">🍺</span>
+        <span>グラス</span>
+        <span class="hint">長押しで傾ける</span>
+      </button>
+
+      <button class="gbtn" id="pour-btn"
+        onpointerdown="hold('p',true)"
+        onpointerup="hold('p',false)"
+        onpointerleave="hold('p',false)"
+        onpointercancel="hold('p',false)">
+        <span class="ico">🥫</span>
+        <span>注ぐ</span>
+        <span class="hint">長押しで缶傾ける</span>
+      </button>
+
+      <button class="gbtn" id="stop-btn" onclick="finish()">
+        <span class="ico">✋</span>
+        <span>確定</span>
+        <span class="hint">完成させる</span>
+      </button>
+    </div>
+
+    <div id="tip">
+      15秒以内に黄金比を目指そう！
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
