@@ -14,24 +14,24 @@
     <div id="hud">
       <div class="stat">
         <div class="slb">スコア</div>
-        <div class="sval" id="sv" style="color:#c08010">0</div>
+        <div class="sval sval--score" id="sv">0</div>
       </div>
 
       <div class="stat">
         <div class="slb">ビール:泡</div>
-        <div class="sval" id="rv" style="color:#378ADD">—</div>
+        <div class="sval sval--ratio" id="rv">—</div>
       </div>
 
       <div class="stat">
         <div class="slb">残り時間</div>
-        <div class="sval" id="tv" style="color:#d04b30">15.0</div>
+        <div class="sval sval--timer" id="tv">15.0</div>
       </div>
     </div>
 
-  <div class="stat" style="width:100%">
-    <div class="slb">ハイスコア</div>
-    <div class="sval" id="hv">0</div>
-  </div>
+    <div class="stat stat--full">
+      <div class="slb">ハイスコア</div>
+      <div class="sval" id="hv">0</div>
+    </div>
 
     <div id="guide">
       <h3>🍺 遊び方</h3>
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div style="margin-top:8px">
+      <div class="guide-goal">
         🎯 目標は <b>ビール80% : 泡20%</b> の黄金比！
       </div>
     </div>
