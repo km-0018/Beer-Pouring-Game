@@ -78,7 +78,7 @@ function calcScore(beer, foam) {
   }
 
   const br = beer / tot;
-  const diff = Math.abs(br - 0.8);
+  const diff = Math.abs(br - 0.7);
   const close = Math.max(0, 1 - diff * 2);
   const fill = Math.min(1, tot / (GMAX * 0.85));
 
@@ -96,7 +96,7 @@ function calc() {
   const br = beer / tot;
   const fr = foam / tot;
 
-  const diff = Math.abs(br - 0.8);
+  const diff = Math.abs(br - 0.7);
   const sc = calcScore(beer, foam);
 
   if (sc > hi) {
