@@ -25,6 +25,7 @@ let hP = false;
 let over = false;
 let started = false;
 let ready = false;
+let targetRatio = 0.7;
 
 // 泡の粒を管理する配列
 let pts = [];
@@ -85,7 +86,7 @@ function calcScore(beer, foam) {
   }
 
   const br = beer / tot;
-  const diff = Math.abs(br - 0.7);
+  const diff = Math.abs(br - targetRatio);
   const close = Math.max(0, 1 - diff * 2);
   const fill = Math.min(1, tot / (GMAX * 0.85));
 
@@ -103,7 +104,7 @@ function calc() {
   const br = beer / tot;
   const fr = foam / tot;
 
-  const diff = Math.abs(br - 0.7);
+  const diff = Math.abs(br - targetRatio);
   const sc = calcScore(beer, foam);
 
   if (sc > hi) {
@@ -121,6 +122,10 @@ function calc() {
           : "😅 泡だらけ…";
 
   show(lbl, sc, br, fr);
+}
+
+function getRandomTargetRatio() {
+  return 0.55 + Math.random() * 0.3;
 }
 
 function show(lbl, sc, br, fr) {
@@ -160,6 +165,11 @@ function reset() {
   overflowPts = [];
 
   oFlash = 0;
+  targetRatio = getRandomTargetRatio();
+  document.getElementById("goal-ratio").textContent =
+    `ビール${Math.round(targetRatio * 100)}% : 泡${Math.round(
+      (1 - targetRatio) * 100,
+    )}%`;
 
   document.getElementById("sv").textContent = "0";
   document.getElementById("rv").textContent = "—";
