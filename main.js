@@ -125,7 +125,7 @@ function calc() {
 }
 
 function getRandomTargetRatio() {
-  return 0.55 + Math.random();
+  return 0.55 + Math.random() * 3;
 }
 
 function show(lbl, sc, br, fr) {
