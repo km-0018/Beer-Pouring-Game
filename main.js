@@ -1,12 +1,14 @@
 const cv = document.getElementById("c");
 const cx = cv.getContext("2d");
 
+// 画面サイズ
 const W = 370;
 const H = 260;
 
 cv.width = W;
 cv.height = H;
 
+// 角度
 const GX = 220;
 const GY = 20;
 const GW = 75;
@@ -38,6 +40,11 @@ let raf;
 const LIMIT = 15;
 let remain = LIMIT;
 
+/**
+ * ボタン押下中の動作
+ * @param {Object} k
+ * @param {Object} v
+ */
 function hold(k, v) {
   if (!ready || over) {
     return;
